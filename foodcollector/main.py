@@ -1,5 +1,6 @@
 import logging.config
 from pathlib import Path
+from time import sleep
 
 import click
 import pkg_resources
@@ -21,11 +22,13 @@ logging.config.fileConfig(logging_config, disable_existing_loggers=False)
 @option('--chromium-path', type=click.Path())
 def cli(username, password, chromium_path, phone_number):
     intro_collection = IntroCollectionFinder(Web(chromium_path), User(username, password))
-    threads = intro_collection.find_updated_threads()
     notifier = SMSNotifier(phone_number)
-    if threads:
-        msg = build_message(threads)
-        notifier.send_message(msg)
+    while True:
+        threads = intro_collection.find_updated_threads()
+        if threads:
+            msg = build_message(threads)
+            notifier.send_message(msg)
+        sleep(3600)
 
 
 if __name__ == '__main__':

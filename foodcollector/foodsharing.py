@@ -21,7 +21,7 @@ class IntroCollectionFinder:
         threads = self._web.driver.find_elements_by_css_selector('.forum_threads .thread')
         updated_threads = []
         for thread in threads:
-            if re.match('vor \d+ (Minuten|Stunden)', thread.find_element_by_class_name('time').text):
+            if re.match('vor \d+ Minuten', thread.find_element_by_class_name('time').text):
                 updated_threads.append(thread.find_element_by_class_name('thread-title').text)
                 log.info(f'New post in {updated_threads[-1]}!')
         if not updated_threads:
