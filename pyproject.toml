@@ -5,7 +5,7 @@ description = ""
 authors = ["Yannik Queisler <dev.yannik.queisler@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 selenium = "^3.141.0"
 click = "^8.0.1"
 twilio = "^6.59.1"

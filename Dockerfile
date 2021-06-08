@@ -1,6 +1,7 @@
-# Use the official lightweight Python image.
-# https://hub.docker.com/_/python
 FROM selenium/standalone-chrome
+
+# Install pip
+RUN sudo apt-get update && sudo apt-get install -y python3-pip
 
 # Allow statements and log messages to immediately appear in the Knative logs
 ENV PYTHONUNBUFFERED True
@@ -11,7 +12,7 @@ WORKDIR $APP_HOME
 COPY . ./
 
 # Install production dependencies.
-RUN pip install poetry && poetry install
+RUN python3 -m pip install click twilio selenium
 
 # Start notifier service
-CMD exec python foodcollector/main.py --username $USERNAME --password $PASSWORD --phone-number $PHONE
+ENTRYPOINT exec python3 $APP_HOME/foodcollector/main.py --username $USERNAME --password $PASSWORD --phone-number $PHONE
