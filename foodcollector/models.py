@@ -5,9 +5,3 @@ from dataclasses import dataclass
 class User:
     username: str
     password: str
-
-
-@dataclass(frozen=True)
-class Thread:
-    name: str
-    password: str

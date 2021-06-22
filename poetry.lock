@@ -191,7 +191,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "twilio"
-version = "6.59.1"
+version = "6.60.0"
 description = "Twilio API client and TwiML generator"
 category = "main"
 optional = false
@@ -303,7 +303,7 @@ six = [
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
 twilio = [
-    {file = "twilio-6.59.1.tar.gz", hash = "sha256:f6cdd2d814c8db411cc6e55145e48491c145af60f5c024e5582578039d0b9141"},
+    {file = "twilio-6.60.0.tar.gz", hash = "sha256:35eded160086b026c28b06fc335e4dfed3e67c90e39c63f2f1881d4bd635b6ab"},
 ]
 urllib3 = [
     {file = "urllib3-1.26.5-py2.py3-none-any.whl", hash = "sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c"},
