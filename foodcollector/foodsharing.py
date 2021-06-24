@@ -1,6 +1,10 @@
 import logging
 import re
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 from foodcollector.models import User
 from foodcollector.webdriver import Web
 
@@ -18,7 +22,8 @@ class IntroCollectionFinder:
         log.info('Looking for new posts...')
         self._web.driver.get(IntroCollectionFinder.BASE_URL)
         self._login()
-        thread_element = self._web.driver.find_elements_by_css_selector('.forum_threads .thread')
+        thread_element = WebDriverWait(self._web.driver, 10).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".forum_threads .thread")))
         threads = []
         for thread in thread_element:
             threads.append((thread.find_element_by_class_name('thread-title').text,
